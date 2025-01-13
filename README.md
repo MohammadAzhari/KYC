@@ -1,4 +1,16 @@
-# Setup locally
+# KYC
+
+This project is a simple backend for a customer submission management system.
+
+## Layer Architecture
+
+![Architecture](image.png)
+
+- **Controller**: The layer responsible for handling HTTP requests, routing them to the appropriate use cases, and returning the responses to the client.
+- **Use Case**: The business logic layer that encapsulates a specific operation or workflow, coordinating data flow between controllers and DAOs.
+- **DAO (Data Access Object)**: The layer responsible for interacting directly with the database, providing methods to query, insert, update, or delete data.
+
+## Setup locally
 
 1. Clone the repository:
 
