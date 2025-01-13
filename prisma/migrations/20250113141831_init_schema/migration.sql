@@ -12,7 +12,7 @@ CREATE TABLE `users` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `kycs` (
+CREATE TABLE `customer_submissions` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(191) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
@@ -22,10 +22,10 @@ CREATE TABLE `kycs` (
     `userId` INTEGER NOT NULL,
     `status` ENUM('PENDING', 'APPROVED', 'REJECTED') NOT NULL,
 
-    UNIQUE INDEX `kycs_userId_key`(`userId`),
-    INDEX `kycs_status_idx`(`status`),
+    UNIQUE INDEX `customer_submissions_userId_key`(`userId`),
+    INDEX `customer_submissions_status_idx`(`status`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
-ALTER TABLE `kycs` ADD CONSTRAINT `kycs_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `customer_submissions` ADD CONSTRAINT `customer_submissions_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

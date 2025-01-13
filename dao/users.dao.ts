@@ -2,7 +2,7 @@ import { Role } from "@prisma/client";
 import prisma from "../config/prisma";
 
 const usersDao = {
-  createUser: async (user: { username: string; hashedPassword: string }) => {
+  createUser: async (user: CreateUser) => {
     return prisma.user.create({
       data: {
         username: user.username,
@@ -19,6 +19,27 @@ const usersDao = {
       },
     });
   },
+
+  getUserById: async (id: number) => {
+    return prisma.user.findUnique({
+      where: {
+        id,
+      },
+    });
+  },
+
+  countUsers: async () => {
+    return prisma.user.count({
+      where: {
+        role: Role.USER,
+      },
+    });
+  },
 };
 
 export default usersDao;
+
+type CreateUser = {
+  username: string;
+  hashedPassword: string;
+};
