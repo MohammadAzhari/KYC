@@ -18,7 +18,7 @@ async function adminMiddleware(
   const user = await usersDao.getUserById(userId);
 
   if (!user) {
-    next(new ServerError("User not found", 404));
+    next(new ServerError("Unauthorized", 401));
     return;
   }
 

@@ -1,4 +1,4 @@
-import { CustomerSubmission, CustomerSubmissionStatus } from "@prisma/client";
+import { CustomerSubmission } from "@prisma/client";
 import { z } from "zod";
 import { vaildate } from "../../utils/validate";
 import customerSubmissionDao from "../../dao/customer-submission.dao";
